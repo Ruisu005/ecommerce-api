@@ -14,11 +14,11 @@ if (isset($data['email']) && isset($data['password']) && isset($data['firstname'
     $lastname = $conn->real_escape_string($data['lastname']);
     $address = $conn->real_escape_string($data['address']);
     $contact_info = $conn->real_escape_string($data['contact_info']);
-    $type = 0;  // Assuming default user type
-    $status = 1;  // Assuming default status is active
+    $type = 0;  // Tipo de Usuario, cero significa usuario cliente, y 1 significa usuario administrador
+    $status = 1;  // Se asigna el estado del usuario como 1 que es activo
     $activate_code = '';
     $reset_code = '';
-    $photo = 'user_default.png';  // Assuming no photo for now
+    $photo = 'user_default.png';  // Se asigna una foto de perfil por defecto
     $created_on = date('Y-m-d');
 
     $sql = "INSERT INTO users (email, password, type, firstname, lastname, address, contact_info, photo, status, activate_code, reset_code, created_on) VALUES ('$email', '$password', '$type', '$firstname', '$lastname', '$address', '$contact_info', '$photo', '$status', '$activate_code', '$reset_code', '$created_on')";

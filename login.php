@@ -17,16 +17,16 @@ if (isset($data['email']) && isset($data['password'])) {
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
-            echo json_encode(['status' => 'success', 'message' => 'Login successful']);
+            echo json_encode(['status' => 'success', 'message' => 'Inicio de sesión exitosa']);
         } else {
-            echo json_encode(['status' => 'error', 'message' => 'Invalid password']);
+            echo json_encode(['status' => 'error', 'message' => 'Contraseña invalida']);
         }
     } else {
-        echo json_encode(['status' => 'error', 'message' => 'User not found']);
+        echo json_encode(['status' => 'error', 'message' => 'Usuario no encontrado']);
     }
 
     $conn->close();
 } else {
-    echo json_encode(['status' => 'error', 'message' => 'Invalid input']);
+    echo json_encode(['status' => 'error', 'message' => 'Entrada inválida']);
 }
 ?>
